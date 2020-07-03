@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphics.manager.LoginControl">
+   <center>
+      <GridPane prefHeight="500.0" prefWidth="520.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="20.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="20.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
+          <RowConstraints fillHeight="false" maxHeight="215.0" minHeight="10.0" prefHeight="80.0" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="137.0" minHeight="10.0" prefHeight="69.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TextField fx:id="txtLoginUsername" alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="192.0" promptText="نام کاربری" GridPane.columnIndex="3" GridPane.rowIndex="5">
+               <font>
+                  <Font name="B Koodak Bold" size="12.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="txtLoginPassword" alignment="CENTER_RIGHT" prefHeight="30.0" promptText="رمز عبور" GridPane.columnIndex="3" GridPane.rowIndex="7">
+               <font>
+                  <Font name="B Koodak Bold" size="12.0" />
+               </font>
+            </PasswordField>
+            <Label text="ثبت نام" textFill="#2916d3" GridPane.columnIndex="3" GridPane.halignment="CENTER">
+               <font>
+                  <Font name="B Nazanin" size="24.0" />
+               </font>
+               <effect>
+                  <DropShadow color="#37eb97" />
+               </effect>
+            </Label>
+            <Label text="نام کاربری:" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label text="گذرواژه:" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtLoginname" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="71.0" promptText="نام" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </TextField>
+            <Label text="نام و نام خانوادگی:" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtLoginLastname" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="128.0" promptText="نام خانوادگی" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="3">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </TextField>
+            <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="43.0" prefWidth="228.0" text="برای بهره مندی از تمامی امکانات باید ثبت نام نمایید." GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <font>
+                  <Font name="B Koodak Bold" size="11.0" />
+               </font>
+            </Label>
+            <Button fx:id="loginButton" mnemonicParsing="false" onAction="#loginButtonAction" prefHeight="33.0" prefWidth="71.0" text="ثبت نام" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="8">
+               <font>
+                  <Font name="B Koodak Bold" size="16.0" />
+               </font>
+            </Button>
+            <Label alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="202.0" text="در صورتی که در سامانه ثبت نام نموده اید، می توانید از" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="B Koodak Bold" size="11.0" />
+               </font>
+            </Label>
+            <Label text="ورود" textFill="#2916d3" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+               <font>
+                  <Font name="B Nazanin" size="24.0" />
+               </font>
+               <effect>
+                  <DropShadow color="#37eb97" />
+               </effect>
+            </Label>
+            <TextField fx:id="txtEnterUsername" alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="192.0" promptText="نام کاربری" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font name="B Koodak Bold" size="12.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="txtEnterPassword" alignment="CENTER_RIGHT" prefHeight="30.0" promptText="رمز عبور" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <font>
+                  <Font name="B Koodak Bold" size="12.0" />
+               </font>
+            </PasswordField>
+            <Label text="نام کاربری:" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label text="گذرواژه:" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="enterButton" mnemonicParsing="false" onAction="#enterButtonAction" prefHeight="33.0" prefWidth="71.0" text="ورود" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+               <font>
+                  <Font name="B Koodak Bold" size="16.0" />
+               </font>
+            </Button>
+            <Label alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="198.0" text="طریق فرم زیر وارد شوید. " GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="B Koodak Bold" size="11.0" />
+               </font>
+            </Label>
+            <Label fx:id="sameErrorLoginLabel" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="312.0" text="فردی با همین نام ثبت نام کرده است نام کاربری خود را تغییر دهید." textFill="RED" visible="false" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="B Koodak Bold" size="12.0" />
+               </font>
+               <padding>
+                  <Insets right="40.0" />
+               </padding>
+            </Label>
+            <Label fx:id="errorLoginLabel" text="اطلاعات ورودی صحیح نمی باشد." textFill="RED" visible="false" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BASELINE" />
+            <Label fx:id="errorEnterLabel" text="اطلاعات ورودی صحیح نمی باشد." textFill="RED" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>
