@@ -1,5 +1,5 @@
 
-package manager.view;
+package graphics.manager;
 
 import java.net.URL;
 import java.util.ResourceBundle;

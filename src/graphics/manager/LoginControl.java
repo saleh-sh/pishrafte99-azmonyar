@@ -1,8 +1,9 @@
 
 package graphics.manager;
-
+import logic.user.Manager;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -32,22 +33,26 @@ public class LoginControl implements Initializable {
     private Button loginButton;
     @FXML
     private Button enterButton;
-    
+
     public void loginButtonAction(ActionEvent event) {
-        
-            if (txtLoginname.getText().isEmpty() || txtLoginLastname.getText().isEmpty()
-                    || txtLoginUsername.getText().isEmpty() || txtLoginPassword.getText().isEmpty()) {
-                errorLoginLabel.setVisible(true);
-            } else {
-                errorLoginLabel.setVisible(false);
-               
-            }
-       
+
+        if (txtLoginname.getText().isEmpty() || txtLoginLastname.getText().isEmpty()
+                || txtLoginUsername.getText().isEmpty() || txtLoginPassword.getText().isEmpty()) {
+            errorLoginLabel.setVisible(true);
+        } else {
+            errorLoginLabel.setVisible(false);
+             String firstName = txtLoginname.getText();
+             String lastName = txtLoginLastname.getText();
+             String userName = txtLoginUsername.getText();
+             String password = txtLoginPassword.getText();
+             Manager manager = new Manager(firstName,lastName,password,userName);
+        }
+
     }
 
     public void enterButtonAction(ActionEvent event) {
-        
-        
+
+
     }
 
     @Override

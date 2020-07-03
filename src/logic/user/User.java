@@ -7,6 +7,7 @@ public abstract class User {
     protected String password;
     protected String username;
 
+
     public User(String firstName, String lastName, String password, String username) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -15,15 +16,6 @@ public abstract class User {
     }
 }
 
-class Manager extends User {
-    public Manager(String firstName, String lastName, String password, String username) {
-        super(firstName, lastName, password, username);
-    }
-}
 
 
-class Student extends User {
-    public Student(String firstName, String lastName, String password, String username) {
-        super(firstName, lastName, password, username);
-    }
-}
+
