@@ -36,7 +36,7 @@ public class MainLoginController implements Initializable {
         stage.getIcons().add(new Image(Start.class
                 .getResource("resource/login.png").toString()));
         stage.initModality(Modality.WINDOW_MODAL);
-       // stage.initOwner(launcher.getStage());
+        stage.initOwner(launcher.getStage());
         Scene scene = new Scene(manage);
         stage.setScene(scene);
         stage.showAndWait();
