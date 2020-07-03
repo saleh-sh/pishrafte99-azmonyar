@@ -1,6 +1,9 @@
 
 package graphics.manager;
+
+import logic.RequestCreator;
 import logic.user.Manager;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -8,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import logic.user.UserHandler;
 
 public class LoginControl implements Initializable {
 
@@ -41,11 +45,14 @@ public class LoginControl implements Initializable {
             errorLoginLabel.setVisible(true);
         } else {
             errorLoginLabel.setVisible(false);
-             String firstName = txtLoginname.getText();
-             String lastName = txtLoginLastname.getText();
-             String userName = txtLoginUsername.getText();
-             String password = txtLoginPassword.getText();
-             Manager manager = new Manager(firstName,lastName,password,userName);
+            String firstName = txtLoginname.getText();
+            String lastName = txtLoginLastname.getText();
+            String userName = txtLoginUsername.getText();
+            String password = txtLoginPassword.getText();
+            Manager manager = new Manager(firstName, lastName, password, userName);
+            UserHandler.setOnlineUser(manager);
+            RequestCreator requestCreator = new RequestCreator();
+            requestCreator.createManagerSUReq(manager);
         }
 
     }

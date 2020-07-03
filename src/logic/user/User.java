@@ -7,6 +7,21 @@ public abstract class User {
     protected String password;
     protected String username;
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getUsername() {
+        return username;
+    }
 
     public User(String firstName, String lastName, String password, String username) {
         this.firstName = firstName;
