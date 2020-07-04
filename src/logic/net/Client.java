@@ -1,5 +1,6 @@
 package logic.net;
 
+import logic.RequestCreator;
 import org.json.simple.JSONObject;
 
 import java.io.*;
@@ -37,11 +38,9 @@ public class Client implements Runnable {
         while (true) {
 
             try {
-                // System.out.println(object);
-                if (object != null) {
-                    System.out.println(object);
-                    outputStream.writeObject("JSON in client: " + object);
-                    object = null;
+                if (RequestCreator.getRequest() != null) {
+                    outputStream.writeObject(RequestCreator.getRequest());
+                    RequestCreator.setRequest(null);
                 }
 
             } catch (IOException e) {

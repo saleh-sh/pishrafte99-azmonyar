@@ -54,7 +54,6 @@ public class Start extends Application {
         RequestCreator.setClient(client);
         new Thread(client).start();
 
-
         launch(args);
 
 /*
