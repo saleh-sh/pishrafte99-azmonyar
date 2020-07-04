@@ -62,6 +62,17 @@ public class LoginControl implements Initializable {
             UserHandler.setOnlineUser(manager);
             RequestCreator requestCreator = new RequestCreator();
             requestCreator.createManagerSUReq(manager);
+            ((Node) event.getSource()).getScene().getWindow().hide();
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("MainPage.fxml"));
+                BorderPane border = loader.load();
+
+
+                Start.getBorder().setCenter(border);
+                MainPageController userController = (MainPageController) loader.getController();
+                userController.getUser(txtLoginUsername.getText());
+                //just for test we should add it when we get groups chat from database
+                userController.setGroups(new String[]{"گروه اول","گروه دوم"});
         }
 
     }
@@ -96,6 +107,8 @@ public class LoginControl implements Initializable {
                 Start.getBorder().setCenter(border);
                 MainPageController userController = (MainPageController) loader.getController();
                 userController.getUser(txtEnterUsername.getText());
+                //just for test we should add it when we get groups chat from database
+                userController.setGroups(new String[]{"گروه اول","گروه دوم"});
             }
         }
 

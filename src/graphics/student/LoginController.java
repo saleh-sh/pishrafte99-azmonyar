@@ -6,6 +6,7 @@
 package graphics.student;
 
 
+import graphics.launcher.Start;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -59,11 +60,21 @@ public class LoginController implements Initializable {
 
     }
 
-    public void enterButtonAction(ActionEvent event) {
+    public void enterButtonAction(ActionEvent event) throws IOException {
         if (txtEnterUsername.getText().isEmpty() || txtEnterPassword.getText().isEmpty()) {
             errorEnterLabel.setVisible(true);
         } else {
             errorEnterLabel.setVisible(false);
+            ((Node) event.getSource()).getScene().getWindow().hide();
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("MainPage.fxml"));
+                BorderPane border = loader.load();
+
+                Start.getBorder().setCenter(border);
+                MainPageController userController = (MainPageController) loader.getController();
+                userController.getUser(txtEnterUsername.getText());
+                //just for test we should add it when we get groups chat from database
+                userController.setGroups(new String[]{"گروه اول","گروه دوم"});
         }
 
     }
