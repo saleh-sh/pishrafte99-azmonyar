@@ -7,9 +7,11 @@ package graphics.student;
 
 
 import graphics.launcher.Start;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +22,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import logic.RequestCreator;
+import logic.user.Student;
+import logic.user.UserHandler;
 
 public class LoginController implements Initializable {
 
@@ -51,11 +56,21 @@ public class LoginController implements Initializable {
     public void loginButtonAction(ActionEvent event) {
 
         if (txtLoginname.getText().isEmpty() || txtLoginLastname.getText().isEmpty()
-                || txtLoginUsername.getText().isEmpty() || txtLoginPassword.getText().isEmpty()) {
+                || txtLoginUsername.getText().isEmpty() || txtLoginPassword.getText().isEmpty() || txtLoginStudentId.getText().isEmpty()) {
             errorLoginLabel.setVisible(true);
         } else {
             errorLoginLabel.setVisible(false);
 
+            String firstName = txtLoginname.getText();
+            String lastName = txtLoginLastname.getText();
+            String username = txtLoginUsername.getText();
+            String password = txtLoginPassword.getText();
+            String studentId = txtLoginStudentId.getText();
+
+            Student student = new Student(firstName, lastName, password, username, studentId);
+            UserHandler.setOnlineUser(student);
+            RequestCreator requestCreator = new RequestCreator();
+            requestCreator.createStudentSUreq(student);
         }
 
     }
@@ -66,15 +81,15 @@ public class LoginController implements Initializable {
         } else {
             errorEnterLabel.setVisible(false);
             ((Node) event.getSource()).getScene().getWindow().hide();
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("MainPage.fxml"));
-                BorderPane border = loader.load();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("MainPage.fxml"));
+            BorderPane border = loader.load();
 
-                Start.getBorder().setCenter(border);
-                MainPageController userController = (MainPageController) loader.getController();
-                userController.getUser(txtEnterUsername.getText());
-                //just for test we should add it when we get groups chat from database
-                userController.setGroups(new String[]{"گروه اول","گروه دوم"});
+            Start.getBorder().setCenter(border);
+            MainPageController userController = (MainPageController) loader.getController();
+            userController.getUser(txtEnterUsername.getText());
+            //just for test we should add it when we get groups chat from database
+            userController.setGroups(new String[]{"گروه اول", "گروه دوم"});
         }
 
     }

@@ -13,6 +13,7 @@ public class ServerConnection implements Runnable {
     private Socket server;
     //private BufferedReader in;
     private ObjectInputStream in;
+    //به وسیله این کد ها ارتباط بین سرور و کلاینت برقرا میشود
     private final int MAN_SIGN_UP = 111;
     private final int USER_SIGN_IN = 112;
     public static final ServerConnection SERVER_CONNECTION = new ServerConnection();
