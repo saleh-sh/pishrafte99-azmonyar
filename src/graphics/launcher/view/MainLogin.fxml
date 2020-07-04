@@ -8,9 +8,11 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphics.launcher.view.MainLoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphics.launcher.view.MainPageControl">
    <center>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -35,15 +37,31 @@
                   <DropShadow color="#1d8661" height="53.62" radius="21.862499999999997" spread="0.34" width="35.83" />
                </effect>
             </Label>
-            <Button fx:id="manageButton" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#manageButtonAction" prefHeight="50.0" prefWidth="150.0" text="پنل مدیریت" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+            <Button id="button" fx:id="manageButton" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#manageButtonAction" prefHeight="50.0" prefWidth="150.0" stylesheets="@style.css" text="پنل مدیریت" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
                <font>
                   <Font name="B Koodak Bold" size="18.0" />
                </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#5e7dd0" />
+                        <Stop color="BLACK" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
             </Button>
-            <Button fx:id="studentButton" alignment="CENTER" mnemonicParsing="false" onAction="#studentButtonAction" prefHeight="50.0" prefWidth="150.0" text="پنل دانشجو" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <Button id="button" fx:id="studentButton" alignment="CENTER" mnemonicParsing="false" onAction="#studentButtonAction" prefHeight="50.0" prefWidth="150.0" stylesheets="@style.css" text="پنل دانشجو" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <font>
                   <Font name="B Koodak Bold" size="18.0" />
                </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#5e7dd0" />
+                        <Stop color="BLACK" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
             </Button>
          </children>
       </GridPane>

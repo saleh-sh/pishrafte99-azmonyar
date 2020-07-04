@@ -1,6 +1,7 @@
 package graphics.launcher;
 
 
+import graphics.launcher.view.Animationed;
 import java.io.IOException;
 
 import javafx.application.Application;
@@ -19,7 +20,7 @@ import org.json.simple.JSONObject;
 
 public class Start extends Application {
     private static Stage stage;
-    private BorderPane border;
+    private static BorderPane border;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -30,6 +31,8 @@ public class Start extends Application {
                 .getResource("resource/logo.png").toString()));
         showLoginPage();
         showLoginItems();
+        Animationed animation = new Animationed(50, border, 0.1);
+        animation.generateAnimation();
     }
 
     public void showLoginItems() throws IOException {
@@ -50,9 +53,9 @@ public class Start extends Application {
 
     public static void main(String[] args) {
 
-        Client client = new Client();
+       /* Client client = new Client();
         RequestCreator.setClient(client);
-        new Thread(client).start();
+        new Thread(client).start();*/
 
 
         launch(args);
@@ -76,7 +79,7 @@ public class Start extends Application {
         return stage;
     }
 
-    public BorderPane getBorder() {
+    public static BorderPane getBorder() {
         return border;
     }
 

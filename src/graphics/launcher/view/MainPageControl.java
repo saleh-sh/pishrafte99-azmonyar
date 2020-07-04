@@ -38,12 +38,29 @@ public class MainPageControl implements Initializable {
         stage.initOwner(launcher.getStage());
         Scene scene = new Scene(manage);
         stage.setScene(scene);
-        stage.showAndWait();
+        stage.show();
         this.stage = stage;
+        Animationed animationed = new Animationed(20,manage,0.25);
+        animationed.generateAnimation();
     }
 
     public void studentButtonAction() throws IOException {
-
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(graphics.student.LoginController.class.getResource("Login.fxml"));
+        BorderPane manage = loader.load();
+        //launcher.getBorderPane().setCenter(manage);
+        Stage stage = new Stage();
+        stage.setTitle("ورود دانشجو");
+        stage.setResizable(false);
+        stage.getIcons().add(new Image(Start.class
+                .getResource("resource/login.png").toString()));
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(launcher.getStage());
+        Scene scene = new Scene(manage);
+        stage.setScene(scene);
+        stage.show();
+        Animationed animationed = new Animationed(20,manage,0.4);
+        animationed.generateAnimation();
     }
 
     @Override

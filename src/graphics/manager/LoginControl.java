@@ -1,6 +1,8 @@
 
 package graphics.manager;
 
+import graphics.launcher.Start;
+import java.io.IOException;
 import logic.RequestCreator;
 import logic.user.Manager;
 
@@ -9,8 +11,11 @@ import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
 import logic.user.UserHandler;
 
 public class LoginControl implements Initializable {
@@ -38,13 +43,16 @@ public class LoginControl implements Initializable {
     @FXML
     private Button enterButton;
 
-    public void loginButtonAction(ActionEvent event) {
+    public void loginButtonAction(ActionEvent event) throws IOException {
 
         if (txtLoginname.getText().isEmpty() || txtLoginLastname.getText().isEmpty()
                 || txtLoginUsername.getText().isEmpty() || txtLoginPassword.getText().isEmpty()) {
             errorLoginLabel.setVisible(true);
         } else {
             errorLoginLabel.setVisible(false);
+            
+                
+                
             String firstName = txtLoginname.getText();
             String lastName = txtLoginLastname.getText();
             String userName = txtLoginUsername.getText();
@@ -57,8 +65,20 @@ public class LoginControl implements Initializable {
 
     }
 
-    public void enterButtonAction(ActionEvent event) {
+    public void enterButtonAction(ActionEvent event) throws IOException {
+         if (txtEnterUsername.getText().isEmpty() || txtEnterPassword.getText().isEmpty()) {
+            errorEnterLabel.setVisible(true);
+        } else {
+            errorEnterLabel.setVisible(false);
+            ((Node) event.getSource()).getScene().getWindow().hide();
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("MainPage.fxml"));
+                BorderPane border = loader.load();
 
+                Start.getBorder().setCenter(border);
+                MainPageController userController = (MainPageController) loader.getController();
+                userController.getUser(txtEnterUsername.getText());
+        }
 
     }
 
