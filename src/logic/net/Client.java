@@ -8,14 +8,18 @@ import java.net.Socket;
 
 public class Client implements Runnable {
 
-    private static final String IP = "127.0.0.1";
-    private static final int PORT = 9090;
-    private JSONObject object = null;
+    public static final String IP = "127.0.0.1";
+    public static final int PORT = 9090;
+    public static final Client CLIENT = new Client();
+    private Client(){
 
+    }
+   // private JSONObject object = null;
+/*
     public void setObject(JSONObject object) {
         this.object = object;
     }
-
+*/
 
     @Override
     public void run() {
@@ -25,7 +29,7 @@ public class Client implements Runnable {
 
         try {
             socket = new Socket(IP, PORT);
-            serverConn = new ServerConnection(socket);
+            serverConn = ServerConnection.SERVER_CONNECTION;//new ServerConnection(socket);
             outputStream = new ObjectOutputStream(socket.getOutputStream());
 
 
@@ -33,6 +37,12 @@ public class Client implements Runnable {
             ex.printStackTrace();
         }
 
+        serverConn.setServer(socket);
+        try {
+            serverConn.setIn(new ObjectInputStream(socket.getInputStream()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         new Thread(serverConn).start();
 
         while (true) {

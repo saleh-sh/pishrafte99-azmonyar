@@ -2,6 +2,7 @@ package graphics.launcher;
 
 
 import graphics.launcher.view.Animationed;
+
 import java.io.IOException;
 
 import javafx.application.Application;
@@ -53,10 +54,10 @@ public class Start extends Application {
 
     public static void main(String[] args) {
 
-        Client client = new Client();
-        RequestCreator.setClient(client);
-        new Thread(client).start();
-
+        //Client client = new Client();
+        // RequestCreator.setClient(client);
+        // new Thread(client).start();
+        new Thread(Client.CLIENT).start();
         launch(args);
 
 /*
