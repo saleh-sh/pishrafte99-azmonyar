@@ -53,9 +53,9 @@ public class Start extends Application {
 
     public static void main(String[] args) {
 
-       /* Client client = new Client();
+        Client client = new Client();
         RequestCreator.setClient(client);
-        new Thread(client).start();*/
+        new Thread(client).start();
 
         launch(args);
 

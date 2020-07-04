@@ -29,6 +29,11 @@ public abstract class User {
         this.password = password;
         this.username = username;
     }
+
+    public User(String password, String username) {
+        this.password = password;
+        this.username = username;
+    }
 }
 
 

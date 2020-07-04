@@ -2,7 +2,9 @@
 package graphics.manager;
 
 import graphics.launcher.Start;
+
 import java.io.IOException;
+
 import logic.RequestCreator;
 import logic.user.Manager;
 
@@ -50,9 +52,7 @@ public class LoginControl implements Initializable {
             errorLoginLabel.setVisible(true);
         } else {
             errorLoginLabel.setVisible(false);
-            
-                
-                
+
             String firstName = txtLoginname.getText();
             String lastName = txtLoginLastname.getText();
             String userName = txtLoginUsername.getText();
@@ -66,18 +66,25 @@ public class LoginControl implements Initializable {
     }
 
     public void enterButtonAction(ActionEvent event) throws IOException {
-         if (txtEnterUsername.getText().isEmpty() || txtEnterPassword.getText().isEmpty()) {
+        if (txtEnterUsername.getText().isEmpty() || txtEnterPassword.getText().isEmpty()) {
             errorEnterLabel.setVisible(true);
         } else {
             errorEnterLabel.setVisible(false);
             ((Node) event.getSource()).getScene().getWindow().hide();
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("MainPage.fxml"));
-                BorderPane border = loader.load();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("MainPage.fxml"));
+            BorderPane border = loader.load();
 
-                Start.getBorder().setCenter(border);
-                MainPageController userController = (MainPageController) loader.getController();
-                userController.getUser(txtEnterUsername.getText());
+            String username = txtEnterUsername.getText();
+            String password = txtEnterPassword.getText();
+            Manager manager = new Manager(password, username);
+            UserHandler.setOnlineUser(manager);
+            RequestCreator requestCreator = new RequestCreator();
+            requestCreator.createUserSIreq(manager);
+
+            Start.getBorder().setCenter(border);
+            MainPageController userController = (MainPageController) loader.getController();
+            userController.getUser(txtEnterUsername.getText());
         }
 
     }

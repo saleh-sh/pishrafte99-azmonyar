@@ -16,4 +16,12 @@ public class JsonConverter {
 
         return obj;
     }
+
+    public static JSONObject convertUser(User user){
+        JSONObject obj = new JSONObject();
+        obj.put("username",user.getUsername());
+        obj.put("password",user.getPassword());
+
+        return obj;
+    }
 }
