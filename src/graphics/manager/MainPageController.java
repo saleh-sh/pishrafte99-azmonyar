@@ -1,4 +1,3 @@
-
 package graphics.manager;
 
 import java.net.URL;
@@ -18,7 +17,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.util.Duration;
 
-
 public class MainPageController implements Initializable {
 
     private String[] groupsName = {""};
@@ -36,43 +34,54 @@ public class MainPageController implements Initializable {
     private Button manageExamButton;
     @FXML
     private Button correctionExamButton;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
             LocalTime currentTime = LocalTime.now();
+            String hour = Integer.toString(currentTime.getHour());
             String min = Integer.toString(currentTime.getMinute());
             String sec = Integer.toString(currentTime.getSecond());
+            if (hour.length() == 1) {
+                hour = "0" + hour;
+            }
             if (min.length() == 1) {
                 min = "0" + min;
             }
             if (sec.length() == 1) {
                 sec = "0" + sec;
             }
-            timeLabel.setText(currentTime.getHour() + ":" + min + ":" + sec);   }),
+            timeLabel.setText(hour + ":" + min + ":" + sec);
+        }),
                 new KeyFrame(Duration.seconds(1))
         );
         clock.setCycleCount(Animation.INDEFINITE);
         clock.play();
 
     }
+
     @FXML
-    public void manageExamButtonAction(){
-        
+    public void manageExamButtonAction() {
+
     }
+
     @FXML
-    public void historyExamsButtonAction(){
-        
+    public void historyExamsButtonAction() {
+
     }
+
     @FXML
-    public void madeExamButtonAction(){
-        
+    public void madeExamButtonAction() {
+
     }
+
     @FXML
-    public void correctionExamButtonAction(){
-        
+    public void correctionExamButtonAction() {
+
     }
+
     public void getUser(String user) {
-        welcomeLabel.setText("کاربر"+" : "+user);
+        welcomeLabel.setText("کاربر" + " : " + user);
 
     }
 
