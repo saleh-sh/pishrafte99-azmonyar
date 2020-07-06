@@ -9,11 +9,10 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphics.manager.MainPageController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphics.manager.MainPageController">
    <center>
       <SplitPane dividerPositions="0.657190635451505" prefHeight="376.0" prefWidth="516.0" BorderPane.alignment="CENTER">
         <items>
@@ -86,18 +85,4 @@
         </items>
       </SplitPane>
    </center>
-   <top>
-      <HBox alignment="CENTER_RIGHT" prefHeight="24.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label fx:id="timeLabel" alignment="CENTER" prefHeight="24.0" prefWidth="78.0" text="Label">
-               <font>
-                  <Font name="B Koodak Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" prefHeight="29.0" prefWidth="78.0" text="Label" />
-            <Label prefHeight="24.0" prefWidth="324.0" />
-            <Label fx:id="welcomeLabel" alignment="CENTER" prefHeight="24.0" prefWidth="133.0" text="welcome admin" />
-         </children>
-      </HBox>
-   </top>
 </BorderPane>

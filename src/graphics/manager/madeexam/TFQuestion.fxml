@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphics.manager.madeexam.TFQuestionController">
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <AnchorPane prefHeight="370.0" prefWidth="600.0" scaleShape="false">
+               <children>
+                  <Label layoutX="504.0" layoutY="21.0" prefHeight="32.0" prefWidth="71.0" text="عنوان سوال :" AnchorPane.leftAnchor="520.0" AnchorPane.topAnchor="15.0">
+                     <font>
+                        <Font name="B Koodak Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="questionField" layoutX="48.0" layoutY="14.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="55.0" prefWidth="451.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="15.0">
+                     <font>
+                        <Font name="B Koodak Bold" size="14.0" />
+                     </font>
+                  </TextArea>
+                  <Button fx:id="madeQuestion" alignment="CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="161.0" mnemonicParsing="false" onAction="#madeQuestion" prefHeight="33.0" prefWidth="101.0" text="ثبت سوال" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0">
+                     <font>
+                        <Font name="B Koodak Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="517.0" layoutY="81.0" prefHeight="22.0" prefWidth="29.0" text="بارم :" AnchorPane.leftAnchor="520.0" AnchorPane.topAnchor="86.0">
+                     <font>
+                        <Font name="B Koodak Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" layoutX="300.0" layoutY="86.0" prefHeight="19.0" prefWidth="99.0" text="زمان پاسخگویی :" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="86.0">
+                     <font>
+                        <Font name="B Koodak Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="pointField" alignment="CENTER" layoutX="325.0" layoutY="84.0" prefHeight="25.0" prefWidth="74.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="84.0">
+                     <font>
+                        <Font name="B Koodak Bold" size="12.0" />
+                     </font></TextField>
+                  <TextField fx:id="minTime" alignment="CENTER" disable="true" layoutX="229.0" layoutY="85.0" prefHeight="16.0" prefWidth="43.0" promptText="-" AnchorPane.topAnchor="85.0" />
+                  <Label layoutX="195.0" layoutY="88.0" prefHeight="19.0" prefWidth="26.0" text="دقیقه" AnchorPane.topAnchor="88.0">
+                     <font>
+                        <Font name="B Koodak Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <CheckBox fx:id="isTime" layoutX="290.0" layoutY="89.0" mnemonicParsing="false" onAction="#isTimeAction" AnchorPane.topAnchor="89.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>

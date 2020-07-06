@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphics.manager.madeexam.FinalSettingController">
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="55.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="55.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="55.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="101.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="101.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="101.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="39.0" minHeight="3.0" prefHeight="24.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="71.0" minHeight="10.0" prefHeight="71.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="111.0" text="ویژگی های آزمون :" GridPane.halignment="RIGHT">
+               <font>
+                  <Font name="B Koodak Bold" size="16.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets right="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="30.0" prefWidth="138.0" text="نمایش تصادفی همه سوالات :" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets right="43.0" />
+               </GridPane.margin>
+            </Label>
+            <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="30.0" prefWidth="174.0" text="فعالسازی مدت زمان پاسخ هر سوال :" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets right="5.0" />
+               </GridPane.margin>
+            </Label>
+            <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="30.0" prefWidth="63.0" text="قابلیت مرور :" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets right="112.0" />
+               </GridPane.margin>
+            </Label>
+            <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="30.0" prefWidth="124.0" text="اطلاعات برگزاری آزمون :" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets right="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="30.0" prefWidth="81.0" text="تاریخ فعالسازی :" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets right="25.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text=" با فعالسازی این قابلیت، گزینه های سوالات تستی برای هر پاسخ دهنده به صورت درهم ریخته و نامرتب خواهد بود" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="8.0" />
+               </font>
+            </Label>
+            <Label text=" با فعالسازی این قابلیت، در صورتی که برای پاسخ به سوالات زمانی را مشخص کرده باشید، زمانبندی سوالات " GridPane.halignment="LEFT" GridPane.rowIndex="2">
+               <font>
+                  <Font size="8.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="فعال خواهد شد،  در غیر اینصورت آزمون بدون زمانبندی سوالات اجرا خواهد شد" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font size="8.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="112.0" />
+               </GridPane.margin>
+            </Label>
+            <CheckBox mnemonicParsing="false" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="205.0" />
+               </GridPane.margin>
+            </CheckBox>
+            <CheckBox mnemonicParsing="false" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="205.0" />
+               </GridPane.margin>
+            </CheckBox>
+            <CheckBox mnemonicParsing="false" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="205.0" />
+               </GridPane.margin>
+            </CheckBox>
+            <Button fx:id="nextStep" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#nextStepAction" prefHeight="33.0" prefWidth="101.0" text="گام بعدی" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
+               <font>
+                  <Font name="B Koodak Bold" size="16.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="30.0" right="30.0" />
+               </GridPane.margin>
+            </Button>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="90.0" text="ساعت فعالسازی :" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="30.0" prefWidth="101.0" text="تاریخ غیر فعالسازی :" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets right="5.0" />
+               </GridPane.margin>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="105.0" text="ساعت غیر فعالسازی :" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <DatePicker nodeOrientation="RIGHT_TO_LEFT" prefHeight="13.0" prefWidth="99.0" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets right="120.0" />
+               </GridPane.margin>
+            </DatePicker>
+            <DatePicker nodeOrientation="RIGHT_TO_LEFT" prefHeight="13.0" prefWidth="99.0" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+               <GridPane.margin>
+                  <Insets right="120.0" />
+               </GridPane.margin>
+            </DatePicker>
+            <TextField fx:id="startTimeExamField" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="75.0" GridPane.rowIndex="5">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="175.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="endTimeExamField" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="75.0" GridPane.halignment="LEFT" GridPane.rowIndex="6">
+               <GridPane.margin>
+                  <Insets left="175.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </TextField>
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>

@@ -17,6 +17,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import logic.user.UserHandler;
@@ -64,15 +65,22 @@ public class LoginControl implements Initializable {
             requestCreator.createManagerSUReq(manager);
             ((Node) event.getSource()).getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("MainPage.fxml"));
-            BorderPane border = loader.load();
-
-
+            loader.setLocation(getClass().getResource("TopBorder.fxml"));
+            
+            Start.setBorder(loader.load());
+            Scene scene = new Scene(Start.getBorder());
+            Start.getStage().setScene(scene);
+            Start.getStage().show();
+            
+            FXMLLoader loader1 = new FXMLLoader();
+            loader1.setLocation(getClass().getResource("MainPage.fxml"));
+            BorderPane border = loader1.load();
             Start.getBorder().setCenter(border);
-            MainPageController userController = (MainPageController) loader.getController();
-            userController.getUser(txtLoginUsername.getText());
-            //just for test we should add it when we get groups chat from database
-            userController.setGroups(new String[]{"گروه اول", "گروه دوم"});
+            graphics.manager.TopBorderController userController = (graphics.manager.TopBorderController) loader.getController();
+            userController.getUser(txtEnterUsername.getText());
+            MainPageController userController2 = (MainPageController) loader1.getController();
+                //just for test we should add it when we get groups chat from database
+                userController2.setGroups(new String[]{"گروه اول","گروه دوم"});
         }
 
     }
@@ -89,7 +97,7 @@ public class LoginControl implements Initializable {
             RequestCreator requestCreator = new RequestCreator();
             requestCreator.createUserSIreq(manager);
             try {
-                Thread.currentThread().sleep(35);
+                Thread.currentThread().sleep(350);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -99,16 +107,23 @@ public class LoginControl implements Initializable {
                 errorEnterLabel.setVisible(true);
             } else {
                 ((Node) event.getSource()).getScene().getWindow().hide();
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("MainPage.fxml"));
-                BorderPane border = loader.load();
-
-
-                Start.getBorder().setCenter(border);
-                MainPageController userController = (MainPageController) loader.getController();
-                userController.getUser(txtEnterUsername.getText());
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("TopBorder.fxml"));
+            
+            Start.setBorder(loader.load());
+            Scene scene = new Scene(Start.getBorder());
+            Start.getStage().setScene(scene);
+            Start.getStage().show();
+            
+            FXMLLoader loader1 = new FXMLLoader();
+            loader1.setLocation(getClass().getResource("MainPage.fxml"));
+            BorderPane border = loader1.load();
+            Start.getBorder().setCenter(border);
+            graphics.manager.TopBorderController userController = (graphics.manager.TopBorderController) loader.getController();
+            userController.getUser(txtEnterUsername.getText());
+            MainPageController userController2 = (MainPageController) loader1.getController();
                 //just for test we should add it when we get groups chat from database
-                userController.setGroups(new String[]{"گروه اول", "گروه دوم"});
+                userController2.setGroups(new String[]{"گروه اول","گروه دوم"});
             }
         }
 

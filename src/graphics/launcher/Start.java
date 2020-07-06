@@ -22,18 +22,18 @@ import org.json.simple.JSONObject;
 public class Start extends Application {
     private static Stage stage;
     private static BorderPane border;
-
+    public static  Animationed anime;
     @Override
     public void start(Stage stage) throws Exception {
-        this.stage = stage;
+        this.setStage(stage);
         getStage().setTitle("سیستم آزمون یار");
         getStage().setResizable(false);
         getStage().getIcons().add(new Image(getClass()
                 .getResource("resource/logo.png").toString()));
         showLoginPage();
         showLoginItems();
-        Animationed animation = new Animationed(50, border, 0.1);
-        animation.generateAnimation();
+        anime = new Animationed(50, border, 0.1);
+        anime.generateAnimation();
     }
 
     public void showLoginItems() throws IOException {
@@ -46,7 +46,7 @@ public class Start extends Application {
     public void showLoginPage() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("view/EmptyPage.fxml"));
-        border = loader.load();
+        setBorder(loader.load());
         Scene scene = new Scene(getBorder());
         getStage().setScene(scene);
         getStage().show();
@@ -81,6 +81,14 @@ public class Start extends Application {
 
     public static BorderPane getBorder() {
         return border;
+    }
+
+    public static void setStage(Stage aStage) {
+        stage = aStage;
+    }
+
+    public static void setBorder(BorderPane aBorder) {
+        border = aBorder;
     }
 
 }

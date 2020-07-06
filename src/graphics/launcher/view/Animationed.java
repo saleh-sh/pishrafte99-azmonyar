@@ -1,5 +1,6 @@
 package graphics.launcher.view;
 
+import java.util.ArrayList;
 import java.util.Random;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -18,18 +19,25 @@ public class Animationed {
     private int count;
     private double opacity;
     private BorderPane border;
+    private ArrayList<Rectangle> rectangles = new ArrayList<>();
+
     public Animationed(int count, BorderPane border, double opacity) {
-        this.count =count;
+        this.count = count;
         this.opacity = opacity;
         this.border = border;
     }
-    public void generateAnimation(){
+
+    public void generateAnimation() {
         for (int i = 0; i < count; i++) {
             Animation(border, opacity);
         }
     }
-    public void removeAnimation() {
-        border.getChildren().removeAll();
+
+    public void setColorAnimation(Color color,double opacity) {
+        for (int i = 0; i < count; i++) {
+            rectangles.get(i).setFill(Color.rgb((int)color.getRed()*255, (int)color.getGreen()*255,
+                    (int)color.getBlue()*255, opacity));
+        }
     }
 
     private void Animation(BorderPane border, double opacity) {
@@ -82,13 +90,15 @@ public class Animationed {
                 System.out.println("default");
         };
         r1.setFill(Color.rgb(68, 114, 226, opacity));
-
+        rectangles.add(r1);
         KeyFrame keyFrame = new KeyFrame(Duration.millis(speedOfSqaure * 1000), moveXAxis, moveYAxis);
         Timeline timeline = new Timeline();
+
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.setAutoReverse(true);
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
+
         border.getChildren().add(border.getChildren().size() - 1, r1);
 
     }
