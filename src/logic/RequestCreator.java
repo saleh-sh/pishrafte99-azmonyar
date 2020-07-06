@@ -29,22 +29,39 @@ public class RequestCreator {
         RequestCreator.request = request;
     }
 
+    /* public void createManagerSUReq(Manager manager) {
+         JSONObject object = JsonConverter.convertManager(manager);
+         object.put("code", new Integer(MAN_SIGN_UP));
+         request = object;
+         //client.setObject(object);
+     } */
     public void createManagerSUReq(Manager manager) {
-        JSONObject object = JsonConverter.convertManager(manager);
+        JSONObject object = manager.toJson();
         object.put("code", new Integer(MAN_SIGN_UP));
         request = object;
         //client.setObject(object);
     }
 
+    /* public void createUserSIreq(User user) {
+         JSONObject object = JsonConverter.convertUser(user);
+         object.put("code", new Integer(USER_SIGN_IN));
+         request = object;
+
+     }*/
     public void createUserSIreq(User user) {
-        JSONObject object = JsonConverter.convertUser(user);
+        JSONObject object = user.toJson();
         object.put("code", new Integer(USER_SIGN_IN));
         request = object;
 
     }
 
-    public void createStudentSUreq(Student student) {
+   /* public void createStudentSUreq(Student student) {
         JSONObject object = JsonConverter.convertStudent(student);
+        object.put("code", new Integer(STUDENT_SIGN_UP));
+        request = object;
+    }  */
+    public void createStudentSUreq(Student student) {
+        JSONObject object = student.toJson();
         object.put("code", new Integer(STUDENT_SIGN_UP));
         request = object;
     }

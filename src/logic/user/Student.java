@@ -1,5 +1,7 @@
 package logic.user;
 
+import org.json.simple.JSONObject;
+
 public class Student extends User {
 
     private String studentId;
@@ -8,9 +10,21 @@ public class Student extends User {
         super(firstName, lastName, password, username);
     }
 
-    public Student(String firstName, String lastName, String password, String username,String studentId){
-        this(firstName,lastName,password,username);
+    public Student(String firstName, String lastName, String password, String username, String studentId) {
+        this(firstName, lastName, password, username);
         this.studentId = studentId;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject obj = new JSONObject();
+        obj.put("firstName", this.getFirstName());
+        obj.put("lastName", this.getLastName());
+        obj.put("username", this.getUsername());
+        obj.put("password", this.getPassword());
+        obj.put("studentId", this.getStudentId());
+
+        return obj;
     }
 
     public Student(String password, String username) {

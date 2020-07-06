@@ -89,7 +89,7 @@ public class LoginControl implements Initializable {
             RequestCreator requestCreator = new RequestCreator();
             requestCreator.createUserSIreq(manager);
             try {
-                Thread.currentThread().sleep(10);
+                Thread.currentThread().sleep(35);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
