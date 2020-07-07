@@ -17,6 +17,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -82,14 +83,22 @@ public class LoginController implements Initializable {
             errorEnterLabel.setVisible(false);
             ((Node) event.getSource()).getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("MainPage.fxml"));
-            BorderPane border = loader.load();
+            loader.setLocation(getClass().getResource("TopBorder.fxml"));
 
+            Start.setBorder(loader.load());
+            Scene scene = new Scene(Start.getBorder());
+            Start.getStage().setScene(scene);
+            Start.getStage().show();
+
+            FXMLLoader loader1 = new FXMLLoader();
+            loader1.setLocation(getClass().getResource("MainPage.fxml"));
+            BorderPane border = loader1.load();
             Start.getBorder().setCenter(border);
-            MainPageController userController = (MainPageController) loader.getController();
+            graphics.student.TopBorderController userController = (graphics.student.TopBorderController) loader.getController();
             userController.getUser(txtEnterUsername.getText());
+            graphics.student.MainPageController userController2 = (graphics.student.MainPageController) loader1.getController();
             //just for test we should add it when we get groups chat from database
-            userController.setGroups(new String[]{"گروه اول", "گروه دوم"});
+            userController2.setGroups(new String[]{"گروه اول", "گروه دوم"});
         }
 
     }
