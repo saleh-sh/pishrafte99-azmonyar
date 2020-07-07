@@ -1,5 +1,5 @@
 
-package graphics.manager;
+package graphics.student;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -44,7 +44,7 @@ public class TopBorderController implements Initializable {
     }    
     public  void getUser(String user) {
         
-        welcomeLabel.setText("مدیر : "+user);
+        welcomeLabel.setText("دانشجو : "+user);
 
     }
     

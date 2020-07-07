@@ -6,24 +6,23 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphics.manager.TopBorderController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphics.student.TopBorderController">
    <top>
       <HBox prefHeight="30.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="timeLabel" alignment="CENTER" prefHeight="34.0" prefWidth="100.0" text="زمان">
+            <Label fx:id="timeLabel" alignment="CENTER" prefHeight="30.0" prefWidth="100.0" text="زمان">
                <font>
                   <Font name="B Koodak Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="liveDate" prefHeight="36.0" prefWidth="100.0" text="تاریخ">
+            <Label fx:id="liveDate" prefHeight="30.0" prefWidth="100.0" text="تاریخ">
                <padding>
                   <Insets left="20.0" />
                </padding>
                <font>
                   <Font name="B Koodak Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label fx:id="welcomeLabel" alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="400.0" text="خوش امدید">
+               </font></Label>
+            <Label fx:id="welcomeLabel" alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="467.0" text="خوش امدید">
                <font>
                   <Font name="B Koodak Bold" size="16.0" />
                </font>
