@@ -58,22 +58,22 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <TextField maxWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefWidth="350.0" promptText="گزینه اول" GridPane.halignment="RIGHT">
+                        <TextField fx:id="firstOption" maxWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefWidth="350.0" promptText="گزینه اول" GridPane.halignment="RIGHT">
                            <GridPane.margin>
                               <Insets right="10.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField maxWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefWidth="350.0" promptText="گزینه سوم" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                        <TextField fx:id="thirdOption" maxWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefWidth="350.0" promptText="گزینه سوم" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets right="10.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField maxWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefWidth="350.0" promptText="گزینه دوم" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                        <TextField fx:id="secondOption" maxWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefWidth="350.0" promptText="گزینه دوم" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets right="10.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField maxWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="350.0" promptText="گزینه چهارم" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                        <TextField fx:id="fourthOption" maxWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="350.0" promptText="گزینه چهارم" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets right="10.0" />
                            </GridPane.margin>

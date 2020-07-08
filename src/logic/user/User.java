@@ -21,6 +21,9 @@ public abstract class User {
         this.username = username;
     }
 
+    public User() {
+    }
+
     public String getFirstName() {
         return firstName;
     }

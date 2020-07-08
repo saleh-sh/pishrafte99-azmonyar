@@ -3,6 +3,7 @@ package graphics.manager.madeexam;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,6 +13,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import graphics.launcher.Start;
+import logic.exam.DescriptiveQues;
+import logic.exam.ExamCreator;
 import manager.tools.FormattedFiled;
 
 public class TextQuestionController implements Initializable {
@@ -30,8 +33,8 @@ public class TextQuestionController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        minTime.setTextFormatter (new FormattedFiled().getDoubleFormatter());
-        pointField.setTextFormatter (new FormattedFiled().getDoubleFormatter());
+        minTime.setTextFormatter(new FormattedFiled().getDoubleFormatter());
+        pointField.setTextFormatter(new FormattedFiled().getDoubleFormatter());
     }
 
     public void madeQuestion() throws IOException {
@@ -41,6 +44,17 @@ public class TextQuestionController implements Initializable {
         Start.getBorder().setCenter(border);
         AddQuestionController userController = (AddQuestionController) loader.getController();
         userController.addQuestion(questionField.getText());
+
+        String questionText = questionField.getText();
+        double point = Double.valueOf(pointField.getText());
+        DescriptiveQues descriptiveQues;
+        if (isTime.isSelected()) {
+            int time = Integer.parseInt(minTime.getText());
+            descriptiveQues = new DescriptiveQues(time, point, questionText);
+        } else {
+            descriptiveQues = new DescriptiveQues(point, questionText);
+        }
+        ExamCreator.getExam().addQuestion(descriptiveQues);
     }
 
     public void isTimeAction() {

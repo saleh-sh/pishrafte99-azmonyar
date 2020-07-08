@@ -10,11 +10,16 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
+
 import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.util.StringConverter;
 import graphics.launcher.Start;
+import logic.exam.ExamCreator;
+import logic.exam.Test;
+import logic.exam.True_False_ques;
 import manager.tools.FormattedFiled;
 
 public class TFQuestionController implements Initializable {
@@ -29,14 +34,16 @@ public class TFQuestionController implements Initializable {
     private TextArea questionField;
     @FXML
     private TextField pointField;
+
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        minTime.setTextFormatter (new FormattedFiled().getDoubleFormatter());
-        pointField.setTextFormatter (new FormattedFiled().getDoubleFormatter());
+        minTime.setTextFormatter(new FormattedFiled().getDoubleFormatter());
+        pointField.setTextFormatter(new FormattedFiled().getDoubleFormatter());
     }
-    
-    
+
+
     public void madeQuestion() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("AddQuestion.fxml"));
@@ -44,6 +51,17 @@ public class TFQuestionController implements Initializable {
         Start.getBorder().setCenter(border);
         AddQuestionController userController = (AddQuestionController) loader.getController();
         userController.addQuestion(questionField.getText());
+
+        String questionText = questionField.getText();
+        double point = Double.valueOf(pointField.getText());
+        True_False_ques trueFalseQues;
+        if (isTime.isSelected()) {
+            int time = Integer.parseInt(minTime.getText());
+            trueFalseQues = new True_False_ques(time, point, questionText);
+        } else {
+            trueFalseQues = new True_False_ques(point, questionText);
+        }
+        ExamCreator.getExam().addQuestion(trueFalseQues);
     }
 
     public void isTimeAction() {

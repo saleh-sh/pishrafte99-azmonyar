@@ -2,11 +2,11 @@ package logic.exam;
 
 public class DescriptiveQues extends Question{
 
-    public DescriptiveQues(int score, String questionText) {
-        super(score, questionText);
+    public DescriptiveQues(double point, String questionText) {
+        super(point, questionText);
     }
 
-    public DescriptiveQues(int time, int score, String questionText) {
-        super(time, score, questionText);
+    public DescriptiveQues(int time, double point, String questionText) {
+        super(time, point, questionText);
     }
 }

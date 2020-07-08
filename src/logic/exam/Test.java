@@ -1,18 +1,30 @@
 package logic.exam;
 
-import java.util.ArrayList;
+import org.json.simple.JSONObject;
 
-public class Test extends Question{
+import java.util.LinkedList;
 
-    private ArrayList<String> options;
+public class Test extends Question {
 
-    public Test(int score, String questionText, ArrayList<String> options) {
-        super(score, questionText);
+    private LinkedList<String> options;
+
+    public Test(double point, String questionText, LinkedList<String> options) {
+        super(point, questionText);
         this.options = options;
     }
 
-    public Test(int time, int score, String questionText, ArrayList<String> options) {
-        super(time, score, questionText);
+    public Test(int time, double point, String questionText, LinkedList<String> options) {
+        super(time, point, questionText);
         this.options = options;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject object = new JSONObject();
+        object.put("QText", questionText);
+        object.put("point", new Double(point));
+        object.put("options", options);
+        object.put("time", time);
+        return object;
     }
 }

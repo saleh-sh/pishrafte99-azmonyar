@@ -1,5 +1,6 @@
 package logic;
 
+import logic.exam.Exam;
 import logic.net.Client;
 import logic.user.Manager;
 import logic.user.Student;
@@ -13,6 +14,7 @@ public class RequestCreator {
     private final int MAN_SIGN_UP = 111;
     private final int USER_SIGN_IN = 112;
     private final int STUDENT_SIGN_UP = 113;
+    private final int NEW_EXAM = 114;
 
 /*
     public static void setClient(Client client) {
@@ -55,14 +57,21 @@ public class RequestCreator {
 
     }
 
-   /* public void createStudentSUreq(Student student) {
-        JSONObject object = JsonConverter.convertStudent(student);
-        object.put("code", new Integer(STUDENT_SIGN_UP));
-        request = object;
-    }  */
+    /* public void createStudentSUreq(Student student) {
+         JSONObject object = JsonConverter.convertStudent(student);
+         object.put("code", new Integer(STUDENT_SIGN_UP));
+         request = object;
+     }  */
     public void createStudentSUreq(Student student) {
+
         JSONObject object = student.toJson();
         object.put("code", new Integer(STUDENT_SIGN_UP));
+        request = object;
+    }
+
+    public void createExamReq(Exam exam) {
+        JSONObject object = exam.toJson();
+        object.put("code", new Integer(NEW_EXAM));
         request = object;
     }
 }

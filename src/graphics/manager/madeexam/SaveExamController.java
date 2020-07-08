@@ -6,6 +6,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
+
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -34,6 +35,9 @@ import javafx.stage.FileChooser;
 import graphics.launcher.Start;
 import graphics.manager.MainPageController;
 import javafx.scene.control.ScrollPane;
+import logic.RequestCreator;
+import logic.exam.ExamCreator;
+import logic.user.Student;
 import manager.tools.FormattedFiled;
 
 public class SaveExamController implements Initializable {
@@ -68,8 +72,11 @@ public class SaveExamController implements Initializable {
         BorderPane border = loader.load();
         Start.getBorder().setCenter(border);
         MainPageController userController2 = (MainPageController) loader.getController();
-                //just for test we should add it when we get groups chat from database
-                userController2.setGroups(new String[]{"گروه اول","گروه دوم"});
+        //just for test we should add it when we get groups chat from database
+        userController2.setGroups(new String[]{"گروه اول", "گروه دوم"});
+        RequestCreator requestCreator = new RequestCreator();
+        requestCreator.createExamReq(ExamCreator.getExam());
+        ExamCreator.reStart();
     }
 
     public void browseButtonAction() {
@@ -97,11 +104,15 @@ public class SaveExamController implements Initializable {
         IDField.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue,
-                    String newValue) {
+                                String newValue) {
                 if (!newValue.matches("\\d*")) {
                     IDField.setText(newValue.replaceAll("[^\\d]", ""));
                 } else {
-
+                    String firstName = nameField.getText();
+                    String lastName = lastNameField.getText();
+                    String studentId = IDField.getText();
+                    Student student = new Student(firstName, lastName, studentId);
+                    ExamCreator.getExam().addParticipant(student);
                 }
             }
 
@@ -135,12 +146,12 @@ public class SaveExamController implements Initializable {
                     + "-fx-border-color:white;"
                     + "-fx-border-radius:10;"
                     + "-fx-border-width:1");
-            gridGroups.add(button, column, r/5);
+            gridGroups.add(button, column, r / 5);
             GridPane.setHalignment(button, HPos.CENTER);
             GridPane.setValignment(button, VPos.CENTER);
             column++;
-            if (column==5) {
-                column=0;
+            if (column == 5) {
+                column = 0;
             }
         }
 

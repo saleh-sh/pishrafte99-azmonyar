@@ -99,17 +99,17 @@
                   <Insets left="112.0" />
                </GridPane.margin>
             </Label>
-            <CheckBox mnemonicParsing="false" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+            <CheckBox fx:id="shuffleCheckBox" mnemonicParsing="false" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="205.0" />
                </GridPane.margin>
             </CheckBox>
-            <CheckBox mnemonicParsing="false" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+            <CheckBox fx:id="examModel" mnemonicParsing="false" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="205.0" />
                </GridPane.margin>
             </CheckBox>
-            <CheckBox mnemonicParsing="false" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+            <CheckBox fx:id="reviewCheckBox" mnemonicParsing="false" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="205.0" />
                </GridPane.margin>
@@ -143,12 +143,12 @@
                   <Insets left="20.0" />
                </GridPane.margin>
             </Label>
-            <DatePicker nodeOrientation="RIGHT_TO_LEFT" prefHeight="13.0" prefWidth="99.0" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+            <DatePicker fx:id="startDate" nodeOrientation="RIGHT_TO_LEFT" prefHeight="13.0" prefWidth="99.0" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets right="120.0" />
                </GridPane.margin>
             </DatePicker>
-            <DatePicker nodeOrientation="RIGHT_TO_LEFT" prefHeight="13.0" prefWidth="99.0" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+            <DatePicker fx:id="endDate" nodeOrientation="RIGHT_TO_LEFT" prefHeight="13.0" prefWidth="99.0" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
                <GridPane.margin>
                   <Insets right="120.0" />
                </GridPane.margin>

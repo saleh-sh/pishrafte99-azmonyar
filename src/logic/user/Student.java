@@ -15,6 +15,14 @@ public class Student extends User {
         this.studentId = studentId;
     }
 
+    public Student(String firstName ,String lastName ,String studentId){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.studentId = studentId;
+        this.username = studentId;
+        this.password = studentId;
+    }
+
     @Override
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
