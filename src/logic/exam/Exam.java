@@ -26,7 +26,6 @@ public class Exam {
         questions = new ArrayList<>();
     }
 
-
       /*  public Exam(boolean shuffle, boolean review, String model, ArrayList<Student> participants, ArrayList<Question> questions, LocalDate startDate
                 , LocalDate endDate, LocalTime startTime, LocalTime endTime) {
             this.shuffle = shuffle;
@@ -56,7 +55,6 @@ public class Exam {
         }
         object.put("questions", question_array);
         object.put("participants", participant_array);
-System.out.println(participant_array);
         /////////باید توجه کرد که toString برای JSON فراخوانی شده
         object.put("model", model.toString());
         object.put("startDate", startDate);
@@ -106,5 +104,4 @@ System.out.println(participant_array);
 
 enum ExamModel {
     TOGETHER, ONEBYONE;
-
 }

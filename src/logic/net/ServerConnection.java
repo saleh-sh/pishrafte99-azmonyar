@@ -16,8 +16,11 @@ public class ServerConnection implements Runnable {
     //به وسیله این کد ها ارتباط بین سرور و کلاینت برقرا میشود
     private final int MAN_SIGN_UP = 111;
     private final int USER_SIGN_IN = 112;
+    private final int STUDENT_READY_EXAMS = 115;
     public static final ServerConnection SERVER_CONNECTION = new ServerConnection();
-    private JSONObject feedback;
+    //private JSONObject feedback;
+    //فقط ورود مدیز و دانشجو
+    private Object feedback;
 
     /*public ServerConnection(Socket s) throws IOException {
         this.server = s;
@@ -37,7 +40,7 @@ public class ServerConnection implements Runnable {
         this.server = server;
     }
 
-    public JSONObject getFeedback() {
+    public Object getFeedback() {
         return feedback;
     }
 
@@ -52,6 +55,10 @@ public class ServerConnection implements Runnable {
                 //}
                 //System.out.println("Server says: " + serverResponse);
 
+                feedback = in.readObject();
+                System.out.println(feedback);
+
+                /*
                 JSONObject serverResponse = (JSONObject) in.readObject();
 
                 if ((int) serverResponse.get("code") == MAN_SIGN_UP) {
@@ -60,6 +67,9 @@ public class ServerConnection implements Runnable {
                 if ((int) serverResponse.get("code") == USER_SIGN_IN) {
                     feedback = serverResponse;
                 }
+                if ((int)serverResponse.get("code") == STUDENT_READY_EXAMS){
+                    feedback = serverResponse;
+                }*/
             }
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();

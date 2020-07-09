@@ -18,7 +18,7 @@ public class Manager extends User {
         obj.put("lastName", this.getLastName());
         obj.put("username", this.getUsername());
         obj.put("password", this.getPassword());
-
+        obj.put("roll","manager");
         return obj;
     }
 }

@@ -17,6 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.util.Duration;
+import logic.RequestCreator;
 
 public class MainPageController implements Initializable {
 
@@ -27,6 +28,8 @@ public class MainPageController implements Initializable {
     private Label welcomeLabel;
     @FXML
     private Label timeLabel;
+    @FXML
+    private Button examsButton;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -72,4 +75,11 @@ public class MainPageController implements Initializable {
             GridPane.setValignment(button, VPos.CENTER);
         }
     }
+
+
+    public void examsButtonAction(){
+
+
+    }
+
 }

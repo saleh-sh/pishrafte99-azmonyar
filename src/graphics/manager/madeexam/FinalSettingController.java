@@ -51,7 +51,15 @@ public class FinalSettingController implements Initializable {
             ex.printStackTrace();
         }
 
+    }
 
+
+    //این متد شی امتحان را ساخته و برای ارسال به سرور قرار می دهد
+    public void nextStepAction() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("SaveExam.fxml"));
+        BorderPane border = loader.load();
+        Start.getBorder().setCenter(border);
         LocalTime startTime = LocalTime.parse(startTimeExamField.getText());
         LocalTime endTime = LocalTime.parse(endTimeExamField.getText());
         ExamCreator.getExam().setEndTime(endTime);
@@ -61,9 +69,9 @@ public class FinalSettingController implements Initializable {
 
         ExamCreator.getExam().setShuffle(false);
         ExamCreator.getExam().setReview(false);
-        if (examModel.isSelected()){
+        if (examModel.isSelected()) {
             ExamCreator.getExam().setModel("ONEBYONE");
-        }else {
+        } else {
             ExamCreator.getExam().setModel("TOGETHER");
         }
         if (shuffleCheckBox.isSelected()) {
@@ -72,15 +80,6 @@ public class FinalSettingController implements Initializable {
         if (reviewCheckBox.isSelected()) {
             ExamCreator.getExam().setReview(true);
         }
-
-    }
-
-    public void nextStepAction() throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("SaveExam.fxml"));
-        BorderPane border = loader.load();
-        Start.getBorder().setCenter(border);
-
 
     }
 

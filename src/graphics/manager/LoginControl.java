@@ -21,6 +21,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import logic.user.UserHandler;
+import org.json.simple.JSONObject;
 
 public class LoginControl implements Initializable {
 
@@ -66,12 +67,12 @@ public class LoginControl implements Initializable {
             ((Node) event.getSource()).getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("TopBorder.fxml"));
-            
+
             Start.setBorder(loader.load());
             Scene scene = new Scene(Start.getBorder());
             Start.getStage().setScene(scene);
             Start.getStage().show();
-            
+
             FXMLLoader loader1 = new FXMLLoader();
             loader1.setLocation(getClass().getResource("MainPage.fxml"));
             BorderPane border = loader1.load();
@@ -79,8 +80,8 @@ public class LoginControl implements Initializable {
             graphics.manager.TopBorderController userController = (graphics.manager.TopBorderController) loader.getController();
             userController.getUser(txtEnterUsername.getText());
             MainPageController userController2 = (MainPageController) loader1.getController();
-                //just for test we should add it when we get groups chat from database
-                userController2.setGroups(new String[]{"گروه اول","گروه دوم"});
+            //just for test we should add it when we get groups chat from database
+            userController2.setGroups(new String[]{"گروه اول", "گروه دوم"});
         }
 
     }
@@ -102,28 +103,28 @@ public class LoginControl implements Initializable {
                 e.printStackTrace();
             }
 
-            if ((Boolean) ServerConnection.SERVER_CONNECTION.getFeedback().get("password") == false
-                    || (Boolean) ServerConnection.SERVER_CONNECTION.getFeedback().get("username") == false) {
+            JSONObject serverFeedback = (JSONObject) ServerConnection.SERVER_CONNECTION.getFeedback();
+            if ((Boolean) serverFeedback.get("password") == false || (Boolean) serverFeedback.get("username") == false) {
                 errorEnterLabel.setVisible(true);
             } else {
                 ((Node) event.getSource()).getScene().getWindow().hide();
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("TopBorder.fxml"));
-            
-            Start.setBorder(loader.load());
-            Scene scene = new Scene(Start.getBorder());
-            Start.getStage().setScene(scene);
-            Start.getStage().show();
-            
-            FXMLLoader loader1 = new FXMLLoader();
-            loader1.setLocation(getClass().getResource("MainPage.fxml"));
-            BorderPane border = loader1.load();
-            Start.getBorder().setCenter(border);
-            graphics.manager.TopBorderController userController = (graphics.manager.TopBorderController) loader.getController();
-            userController.getUser(txtEnterUsername.getText());
-            MainPageController userController2 = (MainPageController) loader1.getController();
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("TopBorder.fxml"));
+
+                Start.setBorder(loader.load());
+                Scene scene = new Scene(Start.getBorder());
+                Start.getStage().setScene(scene);
+                Start.getStage().show();
+
+                FXMLLoader loader1 = new FXMLLoader();
+                loader1.setLocation(getClass().getResource("MainPage.fxml"));
+                BorderPane border = loader1.load();
+                Start.getBorder().setCenter(border);
+                graphics.manager.TopBorderController userController = (graphics.manager.TopBorderController) loader.getController();
+                userController.getUser(txtEnterUsername.getText());
+                MainPageController userController2 = (MainPageController) loader1.getController();
                 //just for test we should add it when we get groups chat from database
-                userController2.setGroups(new String[]{"گروه اول","گروه دوم"});
+                userController2.setGroups(new String[]{"گروه اول", "گروه دوم"});
             }
         }
 

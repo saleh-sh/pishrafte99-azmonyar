@@ -55,7 +55,7 @@
                               </Button>
                            </children>
                         </GridPane>
-                        <Button id="button" mnemonicParsing="false" prefHeight="142.0" prefWidth="243.0" stylesheets="@MainPageStyle.css" text="آزمون های شما" textFill="WHITE" GridPane.halignment="CENTER" GridPane.hgrow="NEVER">
+                        <Button id="button" fx:id="examsButton" mnemonicParsing="false" onMouseClicked="#examsButtonAction" prefHeight="142.0" prefWidth="243.0" stylesheets="@MainPageStyle.css" text="آزمون های شما" textFill="WHITE" GridPane.halignment="CENTER" GridPane.hgrow="NEVER">
                            <font>
                               <Font name="B Koodak Bold" size="28.0" />
                            </font>

@@ -23,6 +23,7 @@ public class Student extends User {
         this.password = studentId;
     }
 
+
     @Override
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
@@ -31,6 +32,7 @@ public class Student extends User {
         obj.put("username", this.getUsername());
         obj.put("password", this.getPassword());
         obj.put("studentId", this.getStudentId());
+        obj.put("roll","student");
 
         return obj;
     }

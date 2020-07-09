@@ -67,21 +67,10 @@ public class Start extends Application {
         //Client client = new Client();
         // RequestCreator.setClient(client);
         // new Thread(client).start();
+
         new Thread(Client.CLIENT).start();
         launch(args);
 
-/*
-        C c = new C("saleh", "6789", "shie", "ghghg");
-        JSONObject object = new JSONObject();
-        object.put("username", c.username);
-        object.put("password", c.password);
-        object.put("firstName", c.firstName);
-        object.put("lastName", c.lastName);
-        object.put("code", new Integer(111));
-*/
-        //client.setObject(object);
-
-        //new Thread(client).start();
     }
 
 
@@ -103,16 +92,4 @@ public class Start extends Application {
 
 }
 
-class C {
-    String username;
-    String password;
-    String firstName;
-    String lastName;
 
-    public C(String username, String password, String firstName, String lastName) {
-        this.username = username;
-        this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-}
