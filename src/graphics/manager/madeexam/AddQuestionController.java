@@ -25,6 +25,7 @@ import graphics.launcher.Start;
 
 public class AddQuestionController implements Initializable {
 
+    private int numQue = 0;
     @FXML
     private GridPane gridGroups;
     private static ArrayList<String> groupsName = new ArrayList<>();
@@ -40,7 +41,6 @@ public class AddQuestionController implements Initializable {
     private Button addQuestionButton;
     @FXML
     private Label typeLabel;
-    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -51,12 +51,14 @@ public class AddQuestionController implements Initializable {
             saveAndGoButton.setVisible(true);
         }
     }
-    public void saveAndGoButton() throws IOException{
+
+    public void saveAndGoButton() throws IOException {
         FXMLLoader loader1 = new FXMLLoader();
-            loader1.setLocation(getClass().getResource("FinalSetting.fxml"));
-            BorderPane border = loader1.load();
-            Start.getBorder().setCenter(border);
+        loader1.setLocation(getClass().getResource("FinalSetting.fxml"));
+        BorderPane border = loader1.load();
+        Start.getBorder().setCenter(border);
     }
+
     public void addQuestion(String Question) {
         groupsName.add(Question);
         for (int r = 0; r < groupsName.size(); r++) {
@@ -91,16 +93,26 @@ public class AddQuestionController implements Initializable {
     }
 
     public void nextStepButton() throws IOException {
+        numQue++;
         FXMLLoader loader = new FXMLLoader();
+        BorderPane border;
         String value = (String) typeQuestion.getValue();
         if (value.equals("تستی")) {
             loader.setLocation(getClass().getResource("TestQuestion.fxml"));
+            border = loader.load();
+            TestQuestionController userController2 = (TestQuestionController) loader.getController();
+            userController2.setNumQue(numQue);
         } else if (value.equals("تشریحی")) {
             loader.setLocation(getClass().getResource("TextQuestion.fxml"));
+            border = loader.load();
+            TextQuestionController userController2 = (TextQuestionController) loader.getController();
+            userController2.setNumQue(numQue);
         } else {
             loader.setLocation(getClass().getResource("TFQuestion.fxml"));
+            border = loader.load();
+            TFQuestionController userController2 = (TFQuestionController) loader.getController();
+            userController2.setNumQue(numQue);
         }
-        BorderPane border = loader.load();
         Start.getBorder().setCenter(border);
     }
 }

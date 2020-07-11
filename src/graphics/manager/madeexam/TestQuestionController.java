@@ -18,6 +18,7 @@ import logic.exam.Test;
 import manager.tools.FormattedFiled;
 
 public class TestQuestionController implements Initializable {
+
     @FXML
     private Button madeQuestion;
     @FXML
@@ -36,6 +37,7 @@ public class TestQuestionController implements Initializable {
     private TextField thirdOption;
     @FXML
     private TextField fourthOption;
+    private int numQue = 1;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -58,7 +60,8 @@ public class TestQuestionController implements Initializable {
         Test test;
         if (isTime.isSelected()) {
             int time = Integer.parseInt(minTime.getText());
-            test = new Test(time, point, questionText, options);
+            test = new Test(options, time, numQue, point, questionText);
+            System.out.println(numQue);
         } else {
             test = new Test(point, questionText, options);
         }
@@ -71,5 +74,9 @@ public class TestQuestionController implements Initializable {
         } else {
             minTime.setDisable(true);
         }
+    }
+
+    public void setNumQue(int numQue) {
+        this.numQue = numQue;
     }
 }

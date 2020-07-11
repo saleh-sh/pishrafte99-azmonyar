@@ -5,19 +5,23 @@ import org.json.simple.JSONObject;
 public abstract class Question {
 
     protected int time;
-    protected double point;
-    protected String questionText;
+    public int numQue;
+    public double point;
+    public String questionText;
 
+    public Question(int time, int numQue, double point, String questionText) {
+        this.time = time;
+        this.numQue = numQue;
+        this.point = point;
+        this.questionText = questionText;
+    }
+    
+    
     public Question(double point, String questionText) {
         this.point = point;
         this.questionText = questionText;
     }
 
-    public Question(int time, double point, String questionText) {
-        this(point,questionText);
-        this.time = time;
-
-    }
 
     public  JSONObject toJson(){
         JSONObject object = new JSONObject();

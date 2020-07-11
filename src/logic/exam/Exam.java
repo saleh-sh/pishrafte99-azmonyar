@@ -19,14 +19,24 @@ public class Exam {
     private LocalDate endDate;
     private LocalTime startTime;
     private LocalTime endTime;
-
+    private String nameExam;
 
     public Exam() {
         participants = new ArrayList<>();
         questions = new ArrayList<>();
     }
 
-      /*  public Exam(boolean shuffle, boolean review, String model, ArrayList<Student> participants, ArrayList<Question> questions, LocalDate startDate
+    public Exam(String name, LocalDate startDate, LocalTime startTime, LocalDate finishDate, LocalTime finishTime) {
+        participants = new ArrayList<>();
+        questions = new ArrayList<>();
+        this.nameExam = name;
+        this.startDate = startDate;
+        this.startTime = startTime;
+        this.endDate = finishDate;
+        this.endTime = finishTime;
+    }
+
+    /*  public Exam(boolean shuffle, boolean review, String model, ArrayList<Student> participants, ArrayList<Question> questions, LocalDate startDate
                 , LocalDate endDate, LocalTime startTime, LocalTime endTime) {
             this.shuffle = shuffle;
             this.review = review;
@@ -38,7 +48,7 @@ public class Exam {
             this.endTime = endTime;
             this.participants = participants;
         }
-*/
+     */
     public JSONObject toJson() {
         JSONObject object = new JSONObject();
         object.put("shuffle", shuffle);
@@ -46,10 +56,10 @@ public class Exam {
         //////////
         JSONArray question_array = new JSONArray();
         JSONArray participant_array = new JSONArray();
-        for (Question q : questions){
+        for (Question q : getQuestions()) {
             question_array.add(q.toJson());
         }
-        for(Student s : participants){
+        for (Student s : participants) {
             participant_array.add(s.toJson());
             System.out.println(s);
         }
@@ -57,10 +67,10 @@ public class Exam {
         object.put("participants", participant_array);
         /////////باید توجه کرد که toString برای JSON فراخوانی شده
         object.put("model", model.toString());
-        object.put("startDate", startDate);
-        object.put("endDate", endDate);
-        object.put("startTime", startTime);
-        object.put("endTime", endTime);
+        object.put("startDate", getStartDate());
+        object.put("endDate", getEndDate());
+        object.put("startTime", getStartTime());
+        object.put("endTime", getEndTime());
         return object;
     }
 
@@ -72,7 +82,7 @@ public class Exam {
         this.review = review;
     }
 
-   public void setModel(String model) {
+    public void setModel(String model) {
         this.model = ExamModel.valueOf(model);
     }
 
@@ -93,14 +103,37 @@ public class Exam {
     }
 
     public void addQuestion(Question question) {
-        this.questions.add(question);
+        this.getQuestions().add(question);
     }
 
     public void addParticipant(Student student) {
         this.participants.add(student);
     }
-}
 
+    public ArrayList<Question> getQuestions() {
+        return questions;
+    }
+
+    public String getNameExam() {
+        return nameExam;
+    }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+
+    public LocalTime getStartTime() {
+        return startTime;
+    }
+
+    public LocalTime getEndTime() {
+        return endTime;
+    }
+}
 
 enum ExamModel {
     TOGETHER, ONEBYONE;
