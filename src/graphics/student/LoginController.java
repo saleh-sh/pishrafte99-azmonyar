@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package graphics.student;
 
 
@@ -68,7 +64,7 @@ public class LoginController implements Initializable {
             String lastName = txtLoginLastname.getText();
             String username = txtLoginUsername.getText();
             String password = txtLoginPassword.getText();
-            String studentId = txtLoginStudentId.getText();
+            int studentId = Integer.parseInt(txtLoginStudentId.getText());
 
             Student student = new Student(firstName, lastName, password, username, studentId);
             UserHandler.setOnlineUser(student);

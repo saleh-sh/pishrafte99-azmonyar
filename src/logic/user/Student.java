@@ -6,23 +6,23 @@ import java.io.Serializable;
 
 public class Student extends User implements Serializable {
 
-    private String studentId;
+    private int studentId;
 
     public Student(String firstName, String lastName, String password, String username) {
         super(firstName, lastName, password, username);
     }
 
-    public Student(String firstName, String lastName, String password, String username, String studentId) {
+    public Student(String firstName, String lastName, String password, String username, int studentId) {
         this(firstName, lastName, password, username);
         this.studentId = studentId;
     }
 
-    public Student(String firstName ,String lastName ,String studentId){
+    public Student(String firstName ,String lastName ,int studentId){
         this.firstName = firstName;
         this.lastName = lastName;
         this.studentId = studentId;
-        this.username = studentId;
-        this.password = studentId;
+        this.username = studentId+"";
+        this.password = studentId+"";
     }
 
 
@@ -43,7 +43,7 @@ public class Student extends User implements Serializable {
         super(password, username);
     }
 
-    public String getStudentId() {
+    public int getStudentId() {
         return studentId;
     }
 }

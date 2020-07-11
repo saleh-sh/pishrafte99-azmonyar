@@ -122,7 +122,7 @@ public class SaveExamController implements Initializable {
             if (button == ButtonType.OK) {
                 String firstName = nameField.getText();
                 String lastName = lastNameField.getText();
-                String studentId = IDField.getText();
+                int studentId = Integer.parseInt(IDField.getText());
                 Student student = new Student(firstName, lastName, studentId);
                 ExamCreator.getExam().addParticipant(student);
                 return new Results(nameField.getText(),
