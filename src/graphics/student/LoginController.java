@@ -56,7 +56,7 @@ public class LoginController implements Initializable {
     @FXML
     private Button enterButton;
 
-    public void loginButtonAction(ActionEvent event) {
+    public void loginButtonAction(ActionEvent event) throws IOException {
 
         if (txtLoginname.getText().isEmpty() || txtLoginLastname.getText().isEmpty()
                 || txtLoginUsername.getText().isEmpty() || txtLoginPassword.getText().isEmpty() || txtLoginStudentId.getText().isEmpty()) {
@@ -74,6 +74,26 @@ public class LoginController implements Initializable {
             UserHandler.setOnlineUser(student);
             RequestCreator requestCreator = new RequestCreator();
             requestCreator.createStudentSUreq(student);
+
+
+            ((Node) event.getSource()).getScene().getWindow().hide();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("TopBorder.fxml"));
+
+            Start.setBorder(loader.load());
+            Scene scene = new Scene(Start.getBorder());
+            Start.getStage().setScene(scene);
+            Start.getStage().show();
+
+            FXMLLoader loader1 = new FXMLLoader();
+            loader1.setLocation(getClass().getResource("MainPage.fxml"));
+            BorderPane border = loader1.load();
+            Start.getBorder().setCenter(border);
+            graphics.student.TopBorderController userController = (graphics.student.TopBorderController) loader.getController();
+            userController.getUser(txtEnterUsername.getText());
+            graphics.student.MainPageController userController2 = (graphics.student.MainPageController) loader1.getController();
+            //just for test we should add it when we get groups chat from database
+            userController2.setGroups(new String[]{"گروه اول", "گروه دوم"});
         }
 
     }
