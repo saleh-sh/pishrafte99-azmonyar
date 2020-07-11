@@ -7,9 +7,10 @@ public class True_False_ques extends Question{
         super(point, questionText);
     }
 
-    public True_False_ques(int time, double point, String questionText) {
-        super(time, point, questionText);
+    public True_False_ques(int time, int numQue, double point, String questionText) {
+        super(time, numQue, point, questionText);
     }
+
 
 }
 

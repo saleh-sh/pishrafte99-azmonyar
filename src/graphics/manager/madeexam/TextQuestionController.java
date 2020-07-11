@@ -50,7 +50,7 @@ public class TextQuestionController implements Initializable {
         DescriptiveQues descriptiveQues;
         if (isTime.isSelected()) {
             int time = Integer.parseInt(minTime.getText());
-            descriptiveQues = new DescriptiveQues(time, point, questionText);
+            descriptiveQues = new DescriptiveQues(time,1, point, questionText);
         } else {
             descriptiveQues = new DescriptiveQues(point, questionText);
         }

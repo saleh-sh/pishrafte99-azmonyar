@@ -1,5 +1,8 @@
 package graphics.student;
 
+import graphics.launcher.Start;
+import graphics.launcher.view.Animationed;
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalTime;
 import java.util.ResourceBundle;
@@ -7,6 +10,7 @@ import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -14,47 +18,51 @@ import javafx.geometry.Pos;
 import javafx.geometry.VPos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.util.Duration;
-import logic.RequestCreator;
+
 
 public class MainPageController implements Initializable {
 
-    private String[] groupsName = {};
+    private String[] groupsName = {""};
     @FXML
     private GridPane gridGroups;
+    
     @FXML
-    private Label welcomeLabel;
+    private Button reviewExamsButton;
     @FXML
-    private Label timeLabel;
+    private Button studentExamButton;
     @FXML
-    private Button examsButton;
-
+    private Button scoreExamButtonAction;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
-            LocalTime currentTime = LocalTime.now();
-            String min = Integer.toString(currentTime.getMinute());
-            String sec = Integer.toString(currentTime.getSecond());
-            if (min.length() == 1) {
-                min = "0" + min;
-            }
-            if (sec.length() == 1) {
-                sec = "0" + sec;
-            }
-            timeLabel.setText(currentTime.getHour() + ":" + min + ":" + sec);
-        }),
-                new KeyFrame(Duration.seconds(1))
-        );
-        clock.setCycleCount(Animation.INDEFINITE);
-        clock.play();
+        Start.anime = new Animationed(50, Start.getBorder(), 0.1);
+        Start.anime.generateAnimation();
+    }
+
+
+
+    @FXML
+    public void reviewExamsButtonAction() {
 
     }
 
-    public void getUser(String user) {
-        welcomeLabel.setText("کاربر" + " : " + user);
+    @FXML
+    public void studentExamButtonAction() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("exam/ShowExam.fxml"));
+        BorderPane border = loader.load();
+        Start.getBorder().setCenter(border);
     }
+
+    @FXML
+    public void scoreExamButtonAction() {
+
+    }
+
+    
 
     public void setGroups(String[] groupArray) {
         this.groupsName = groupArray;
@@ -70,16 +78,14 @@ public class MainPageController implements Initializable {
                     + "-fx-border-color:white;"
                     + "-fx-border-radius:10;"
                     + "-fx-border-width:1");
+            button.setOnMousePressed((event) -> {
+                if (event.getClickCount() == 2) {
+                    System.out.println("two ");
+                }
+            });
             gridGroups.add(button, 0, r);
             GridPane.setHalignment(button, HPos.CENTER);
             GridPane.setValignment(button, VPos.CENTER);
         }
     }
-
-
-    public void examsButtonAction(){
-
-
-    }
-
 }

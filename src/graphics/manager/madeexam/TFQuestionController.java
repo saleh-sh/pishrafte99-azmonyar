@@ -57,7 +57,7 @@ public class TFQuestionController implements Initializable {
         True_False_ques trueFalseQues;
         if (isTime.isSelected()) {
             int time = Integer.parseInt(minTime.getText());
-            trueFalseQues = new True_False_ques(time, point, questionText);
+            trueFalseQues = new True_False_ques(time,1, point, questionText);
         } else {
             trueFalseQues = new True_False_ques(point, questionText);
         }

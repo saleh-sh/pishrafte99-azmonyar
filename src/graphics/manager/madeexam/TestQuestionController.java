@@ -58,7 +58,7 @@ public class TestQuestionController implements Initializable {
         Test test;
         if (isTime.isSelected()) {
             int time = Integer.parseInt(minTime.getText());
-            test = new Test(time, point, questionText, options);
+            test = new Test(options,time,1, point, questionText);
         } else {
             test = new Test(point, questionText, options);
         }
