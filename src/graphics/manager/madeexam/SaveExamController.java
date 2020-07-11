@@ -111,7 +111,11 @@ public class SaveExamController implements Initializable {
                 if (!newValue.matches("\\d*")) {
                     IDField.setText(newValue.replaceAll("[^\\d]", ""));
                 } else {
-
+                    String firstName = nameField.getText();
+                    String lastName = lastNameField.getText();
+                    String studentId = IDField.getText();
+                    Student student = new Student(firstName, lastName, studentId);
+                    ExamCreator.getExam().addParticipant(student);
                 }
             }
 
@@ -125,11 +129,7 @@ public class SaveExamController implements Initializable {
             }
             return null;
         });
-        String firstName = nameField.getText();
-        String lastName = lastNameField.getText();
-        String studentId = IDField.getText();
-        Student student = new Student(firstName, lastName, studentId);
-        ExamCreator.getExam().addParticipant(student);
+
 
         Optional<Results> optionalResult = dialog.showAndWait();
         optionalResult.ifPresent((Results results) -> {
