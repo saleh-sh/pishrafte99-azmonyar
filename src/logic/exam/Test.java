@@ -13,7 +13,7 @@ public class Test extends Question {
         this.options = options;
     }
 
-    public Test(LinkedList<String> options, int time, int numQue, double point, String questionText) {
+    public Test(LinkedList<String> options, double time, int numQue, double point, String questionText) {
         super(time, numQue, point, questionText);
         this.options = options;
     }
