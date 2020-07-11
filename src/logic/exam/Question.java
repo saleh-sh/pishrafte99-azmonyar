@@ -2,7 +2,9 @@ package logic.exam;
 
 import org.json.simple.JSONObject;
 
-public abstract class Question {
+import java.io.Serializable;
+
+public abstract class Question implements Serializable {
 
     protected double time;
     public int numQue;

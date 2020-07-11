@@ -1,6 +1,8 @@
 package logic.exam;
 
-public class DescriptiveQues extends Question{
+import java.io.Serializable;
+
+public class DescriptiveQues extends Question implements Serializable {
 
 
      public DescriptiveQues( int numQue, double point, String questionText) {

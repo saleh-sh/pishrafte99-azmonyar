@@ -56,7 +56,7 @@ public class ServerConnection implements Runnable {
                 //System.out.println("Server says: " + serverResponse);
 
                 feedback = in.readObject();
-                System.out.println(feedback);
+                System.out.println("feedback in server connection"+feedback);
 
                 /*
                 JSONObject serverResponse = (JSONObject) in.readObject();

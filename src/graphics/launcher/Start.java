@@ -25,7 +25,9 @@ import logic.exam.Exam;
 import logic.exam.Question;
 import logic.exam.Test;
 import logic.net.Client;
+import logic.net.ServerConnection;
 import logic.user.Student;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 
@@ -70,7 +72,6 @@ public class Start extends Application {
 
         new Thread(Client.CLIENT).start();
         launch(args);
-
     }
 
 

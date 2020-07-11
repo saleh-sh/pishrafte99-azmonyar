@@ -2,7 +2,9 @@ package logic.user;
 
 import org.json.simple.JSONObject;
 
-public class Manager extends User {
+import java.io.Serializable;
+
+public class Manager extends User implements Serializable {
     public Manager(String firstName, String lastName, String password, String username) {
         super(firstName, lastName, password, username);
     }

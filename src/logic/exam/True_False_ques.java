@@ -1,7 +1,9 @@
 package logic.exam;
 
 
-public class True_False_ques extends Question{
+import java.io.Serializable;
+
+public class True_False_ques extends Question implements Serializable {
 
     public True_False_ques( int numQue, double point, String questionText) {
         super( numQue, point, questionText);

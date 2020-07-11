@@ -21,6 +21,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import logic.exam.*;
+import logic.net.ServerResponseHandler;
 
 public class ShowExamController implements Initializable {
 
@@ -33,24 +34,10 @@ public class ShowExamController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Exam exam = new Exam("ریاضیات گسسته", LocalDate.of(2020,7, 11), LocalTime.of(11, 00,00),
-                    LocalDate.of(2020,7, 11), LocalTime.of(13, 00,00));
-       /* exam.question.add("یبسیب یبسیسشبنم یسکن ش  تیسب یبشس بشسبش  سنکمبش حتسشب تکیسبسمشنب سش");
-        exam.question.add("یبیس بسی سبس کلمب تا سیبک سیبستن سیبسی خادون ددا اخدا کمکم کن بسس");
-        exam.question.add("خدایا کمک کن از دست این زندگی نکبت بار دیگه خسته شدم");
-        exam.question.add("اگه این سوال و تونستی جواب می دی بتونی مینتی وت عاسایا هابسرسر");*/
-        setGroups(new Exam[]{exam,
-            new Exam("فارسی عمومی", LocalDate.of(2020, 11, 23), LocalTime.of(21, 30,00),
-                    LocalDate.of(2020,11, 23), LocalTime.of(23, 30,00)),
-            new Exam("ریاضی عمومی 2", LocalDate.of(2020, 11, 23), LocalTime.of(21, 30,00),
-                    LocalDate.of(2020,11, 24), LocalTime.of(3, 30,00)),
-            new Exam("ریاضی عمومی 2", LocalDate.of(2020, 11, 23), LocalTime.of(21, 30,00),
-                    LocalDate.of(2020,11, 24), LocalTime.of(3, 30,00)),
-            new Exam("ریاضی عمومی 2", LocalDate.of(2020, 11, 23), LocalTime.of(21, 30,00),
-                    LocalDate.of(2020,11, 24), LocalTime.of(3, 30,00)),
-            new Exam("ریاضی عمومی 2", LocalDate.of(2020, 11, 23), LocalTime.of(21, 30,00),
-                    LocalDate.of(2020,11, 24), LocalTime.of(3, 30,00))
-                });
+
+        ServerResponseHandler responseHandler = new ServerResponseHandler();
+        Exam[] exams = responseHandler.getStudentReadyExams();
+        setGroups(exams);
     }
 
     public void setGroups(Exam[] exams) {
@@ -83,7 +70,7 @@ public class ShowExamController implements Initializable {
                                 = (graphics.student.exam.StartAnswerController) loader.getController();
                         userController.setExam(exams[x]);
                     } catch (IOException ex) {
-                        System.out.println("Border Not Found");
+                        System.err.println("Border Not Found");
                     }
                 }
             });

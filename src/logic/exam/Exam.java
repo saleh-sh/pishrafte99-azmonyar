@@ -4,11 +4,12 @@ import logic.user.Student;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
-public class Exam {
+public class Exam implements Serializable {
 
     private boolean shuffle;
     private boolean review;
@@ -19,6 +20,7 @@ public class Exam {
     private LocalDate endDate;
     private LocalTime startTime;
     private LocalTime endTime;
+
     private String nameExam;
 
     public Exam() {
@@ -27,8 +29,8 @@ public class Exam {
     }
 
     public Exam(String name, LocalDate startDate, LocalTime startTime, LocalDate finishDate, LocalTime finishTime) {
-        participants = new ArrayList<>();
-        questions = new ArrayList<>();
+        //participants = new ArrayList<>();
+        //questions = new ArrayList<>();
         this.nameExam = name;
         this.startDate = startDate;
         this.startTime = startTime;
@@ -36,24 +38,11 @@ public class Exam {
         this.endTime = finishTime;
     }
 
-    /*  public Exam(boolean shuffle, boolean review, String model, ArrayList<Student> participants, ArrayList<Question> questions, LocalDate startDate
-                , LocalDate endDate, LocalTime startTime, LocalTime endTime) {
-            this.shuffle = shuffle;
-            this.review = review;
-            this.model = ExamModel.valueOf(model);
-            this.questions = questions;
-            this.startDate = startDate;
-            this.endDate = endDate;
-            this.startTime = startTime;
-            this.endTime = endTime;
-            this.participants = participants;
-        }
-     */
+
     public JSONObject toJson() {
         JSONObject object = new JSONObject();
         object.put("shuffle", shuffle);
         object.put("review", review);
-        //////////
         JSONArray question_array = new JSONArray();
         JSONArray participant_array = new JSONArray();
         for (Question q : getQuestions()) {
@@ -71,6 +60,7 @@ public class Exam {
         object.put("endDate", getEndDate());
         object.put("startTime", getStartTime());
         object.put("endTime", getEndTime());
+        object.put("name",nameExam);
         return object;
     }
 
@@ -132,6 +122,10 @@ public class Exam {
 
     public LocalTime getEndTime() {
         return endTime;
+    }
+
+    public void setNameExam(String nameExam) {
+        this.nameExam = nameExam;
     }
 }
 

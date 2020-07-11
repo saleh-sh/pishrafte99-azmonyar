@@ -26,7 +26,7 @@
          <children>
             <AnchorPane prefHeight="67.0" prefWidth="635.0">
                <children>
-                  <TextField layoutX="28.0" layoutY="14.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="33.0" prefWidth="447.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="15.0">
+                  <TextField fx:id="examName" layoutX="28.0" layoutY="14.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="33.0" prefWidth="447.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="15.0">
                      <font>
                         <Font name="B Koodak Bold" size="16.0" />
                      </font>

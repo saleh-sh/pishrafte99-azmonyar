@@ -2,10 +2,12 @@ package graphics.student;
 
 import graphics.launcher.Start;
 import graphics.launcher.view.Animationed;
+
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalTime;
 import java.util.ResourceBundle;
+
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -22,6 +24,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.util.Duration;
+import logic.RequestCreator;
+import logic.user.Student;
+import logic.user.UserHandler;
 
 
 public class MainPageController implements Initializable {
@@ -29,19 +34,19 @@ public class MainPageController implements Initializable {
     private String[] groupsName = {""};
     @FXML
     private GridPane gridGroups;
-    
+
     @FXML
     private Button reviewExamsButton;
     @FXML
     private Button studentExamButton;
     @FXML
     private Button scoreExamButtonAction;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Start.anime = new Animationed(50, Start.getBorder(), 0.1);
         Start.anime.generateAnimation();
     }
-
 
 
     @FXML
@@ -51,6 +56,15 @@ public class MainPageController implements Initializable {
 
     @FXML
     public void studentExamButtonAction() throws IOException {
+
+        RequestCreator requestCreator = new RequestCreator();
+        requestCreator.createStudentExamsReq((Student) UserHandler.getOnlineUser());
+        try {
+            Thread.currentThread().sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("exam/ShowExam.fxml"));
         BorderPane border = loader.load();
@@ -62,7 +76,6 @@ public class MainPageController implements Initializable {
 
     }
 
-    
 
     public void setGroups(String[] groupArray) {
         this.groupsName = groupArray;
