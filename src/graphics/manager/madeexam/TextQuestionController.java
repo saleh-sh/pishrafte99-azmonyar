@@ -52,9 +52,8 @@ public class TextQuestionController implements Initializable {
         if (isTime.isSelected()) {
             double time = Double.parseDouble(minTime.getText());
             descriptiveQues = new DescriptiveQues(time, numQue, point, questionText);
-            System.out.println(numQue);
         } else {
-            descriptiveQues = new DescriptiveQues(point, questionText);
+            descriptiveQues = new DescriptiveQues(numQue, point, questionText);
         }
         ExamCreator.getExam().addQuestion(descriptiveQues);
         System.out.println(descriptiveQues.toJson());

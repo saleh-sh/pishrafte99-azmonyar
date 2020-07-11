@@ -7,12 +7,10 @@ import java.util.LinkedList;
 public class Test extends Question {
 
     private LinkedList<String> options;
-
-    public Test(double point, String questionText, LinkedList<String> options) {
-        super(point, questionText);
+    public Test(LinkedList<String> options, int numQue, double point, String questionText) {
+        super( numQue, point, questionText);
         this.options = options;
     }
-
     public Test(LinkedList<String> options, double time, int numQue, double point, String questionText) {
         super(time, numQue, point, questionText);
         this.options = options;

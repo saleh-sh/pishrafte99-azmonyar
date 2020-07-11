@@ -61,9 +61,8 @@ public class TestQuestionController implements Initializable {
         if (isTime.isSelected()) {
             double time = Double.parseDouble(minTime.getText());
             test = new Test(options, time, numQue, point, questionText);
-            System.out.println(numQue);
         } else {
-            test = new Test(point, questionText, options);
+            test = new Test(options, numQue, point, questionText);
         }
         ExamCreator.getExam().addQuestion(test);
         System.out.println(test.toJson());

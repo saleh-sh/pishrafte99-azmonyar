@@ -15,13 +15,14 @@ public abstract class Question {
         this.point = point;
         this.questionText = questionText;
     }
-    
-    
-    public Question(double point, String questionText) {
+    public Question( int numQue, double point, String questionText) {
+        this.time = time;
+        this.numQue = numQue;
         this.point = point;
         this.questionText = questionText;
     }
-
+    
+   
 
     public  JSONObject toJson(){
         JSONObject object = new JSONObject();

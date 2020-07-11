@@ -57,9 +57,8 @@ public class TFQuestionController implements Initializable {
         if (isTime.isSelected()) {
             double time = Double.parseDouble(minTime.getText());
             trueFalseQues = new True_False_ques(time, numQue, point, questionText);
-            System.out.println(numQue);
-        } else {
-            trueFalseQues = new True_False_ques(point, questionText);
+    } else {
+            trueFalseQues = new True_False_ques(numQue,point, questionText);
         }
         ExamCreator.getExam().addQuestion(trueFalseQues);
         System.out.println(trueFalseQues.toJson());
