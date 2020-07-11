@@ -34,7 +34,7 @@ public class TFQuestionController implements Initializable {
     private TextArea questionField;
     @FXML
     private TextField pointField;
-
+    private int numQue = 1;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -42,7 +42,6 @@ public class TFQuestionController implements Initializable {
         minTime.setTextFormatter(new FormattedFiled().getDoubleFormatter());
         pointField.setTextFormatter(new FormattedFiled().getDoubleFormatter());
     }
-
 
     public void madeQuestion() throws IOException {
         FXMLLoader loader = new FXMLLoader();
@@ -57,19 +56,24 @@ public class TFQuestionController implements Initializable {
         True_False_ques trueFalseQues;
         if (isTime.isSelected()) {
             int time = Integer.parseInt(minTime.getText());
-            trueFalseQues = new True_False_ques(time,1, point, questionText);
+            trueFalseQues = new True_False_ques(time, numQue, point, questionText);
+            System.out.println(numQue);
         } else {
             trueFalseQues = new True_False_ques(point, questionText);
         }
         ExamCreator.getExam().addQuestion(trueFalseQues);
     }
-
+    
     public void isTimeAction() {
         if (isTime.isSelected()) {
             minTime.setDisable(false);
         } else {
             minTime.setDisable(true);
         }
+    }
+
+    public void setNumQue(int numQue) {
+        this.numQue = numQue;
     }
 
 }

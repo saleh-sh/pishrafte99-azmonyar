@@ -30,6 +30,7 @@ public class TextQuestionController implements Initializable {
     private TextArea questionField;
     @FXML
     private TextField pointField;
+    private int numQue = 1;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -50,7 +51,8 @@ public class TextQuestionController implements Initializable {
         DescriptiveQues descriptiveQues;
         if (isTime.isSelected()) {
             int time = Integer.parseInt(minTime.getText());
-            descriptiveQues = new DescriptiveQues(time,1, point, questionText);
+            descriptiveQues = new DescriptiveQues(time, numQue, point, questionText);
+            System.out.println(numQue);
         } else {
             descriptiveQues = new DescriptiveQues(point, questionText);
         }
@@ -63,6 +65,10 @@ public class TextQuestionController implements Initializable {
         } else {
             minTime.setDisable(true);
         }
+    }
+
+    public void setNumQue(int numQue) {
+        this.numQue = numQue;
     }
 
 }
