@@ -59,11 +59,10 @@ public class TestQuestionController implements Initializable {
         String questionText = questionField.getText();
         Test test;
         if (isTime.isSelected()) {
-            int time = Integer.parseInt(minTime.getText());
+            double time = Double.parseDouble(minTime.getText());
             test = new Test(options, time, numQue, point, questionText);
-            System.out.println(numQue);
         } else {
-            test = new Test(point, questionText, options);
+            test = new Test(options, numQue, point, questionText);
         }
         ExamCreator.getExam().addQuestion(test);
     }

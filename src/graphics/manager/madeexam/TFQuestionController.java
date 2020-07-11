@@ -55,11 +55,10 @@ public class TFQuestionController implements Initializable {
         double point = Double.valueOf(pointField.getText());
         True_False_ques trueFalseQues;
         if (isTime.isSelected()) {
-            int time = Integer.parseInt(minTime.getText());
+            double time = Double.parseDouble(minTime.getText());
             trueFalseQues = new True_False_ques(time, numQue, point, questionText);
-            System.out.println(numQue);
-        } else {
-            trueFalseQues = new True_False_ques(point, questionText);
+    } else {
+            trueFalseQues = new True_False_ques(numQue,point, questionText);
         }
         ExamCreator.getExam().addQuestion(trueFalseQues);
     }

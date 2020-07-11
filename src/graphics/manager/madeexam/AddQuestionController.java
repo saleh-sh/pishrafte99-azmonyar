@@ -25,7 +25,7 @@ import graphics.launcher.Start;
 
 public class AddQuestionController implements Initializable {
 
-    private int numQue = 0;
+    private static int numQue = 0;
     @FXML
     private GridPane gridGroups;
     private static ArrayList<String> groupsName = new ArrayList<>();
@@ -94,6 +94,7 @@ public class AddQuestionController implements Initializable {
 
     public void nextStepButton() throws IOException {
         numQue++;
+        System.out.println(numQue);
         FXMLLoader loader = new FXMLLoader();
         BorderPane border;
         String value = (String) typeQuestion.getValue();
