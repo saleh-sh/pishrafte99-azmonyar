@@ -16,11 +16,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleGroup;
 import logic.exam.True_False_ques;
 
-/**
- * FXML Controller class
- *
- * @author Admin
- */
 public class TFQuestionController implements Initializable {
 
     @FXML

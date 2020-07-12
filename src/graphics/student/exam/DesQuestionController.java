@@ -33,7 +33,6 @@ public class DesQuestionController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // T
     }
 
     public void nextQuestionButtonAction() {
